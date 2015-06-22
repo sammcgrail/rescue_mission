@@ -1,0 +1,18 @@
+
+
+<div class="row">
+  <div class="large-12">
+    <h1>Questions</h1>
+    <table>
+      <tr>
+        <th>Title</th>
+        <th>Creator</th>
+      </tr>
+      <% @questions.order(created_at: :desc).each do |question| %>
+        <tr>
+          <td><%= question.title %></td>
+          <td><%= question.user.email %></td>
+        </tr>
+      <% end %>
+  </div>
+</div>
