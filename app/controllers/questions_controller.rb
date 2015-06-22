@@ -8,4 +8,10 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
   end
 
+  def destroy
+    @question = Question.find(params[:id])
+    @question.destroy
+    redirect_to questions_path
+  end
+
 end

@@ -7,6 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.create!(email: "testemail@gmail.com", password: "secretlongpass", id: 2)
-Question.create!(title: "Test Question Title 2", body: "Test Question Body 2", user_id: 2)
-Question.create!(title: "Test Question Title 3", body: "Test Question Body 2", user_id: 2)
-Question.create!(title: "Test Question Title 4", body: "Test Question Body 3", user_id: 2)
+Question.create!(title: "Test Question Title 2", body: "How do i use rails??", user_id: 2)
+Question.create!(title: "Test Question Title 3", body: "What method sorts the questions", user_id: 2)
+Question.create!(title: "Test Question Title 4", body: "How do i acceptance tests", user_id: 2)
