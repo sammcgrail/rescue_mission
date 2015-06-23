@@ -15,7 +15,7 @@ feature 'user posts a question from add question page', %Q{
 
   scenario 'user visits question index' do
     user = FactoryGirl.create(:user)
-    question = Question.create!(title:"Test Question 40 char title title title title title title title title title ", body: "Test Question body 150 char body body body body body body body body body body
+    question = Question.create!(title:"Test Question 40 char title title title title title title title title title", body: "Test Question body 150 char body body body body body body body body body body
     body body body body body body body body body body body body body body body body body body body body
     body body body body body body body body body body body body body body body body body ok 150 char", user_id: user.id, created_at: "Mon, 22 Jun 2015 17:26:19 UTC +00:00")
     visit questions_path
@@ -24,7 +24,7 @@ feature 'user posts a question from add question page', %Q{
     fill_in "Password", with: user.password
     click_button "Log in"
     click_on "New Question"
-    fill_in "Title", with: "Test Question 40 char title title title title title title title title title "
+    fill_in "Title", with: "Test Question 40 char title title title title title title title title title"
     fill_in "question_body", with: "Test Question body 150 char body body body body body body body body body body
     body body body body body body body body body body body body body body body body body body body body
     body body body body body body body body body body body body body body body body body ok 150 char"
