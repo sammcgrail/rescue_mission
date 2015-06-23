@@ -1,0 +1,26 @@
+
+
+<div class="row">
+  <div class="large-12">
+    <h1>Add New Question</h1>
+
+
+    <%= form_for @question do |f| %>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+
+      <%= f.label :body %>
+      <%= f.text_area :body %>
+
+      <%= f.submit "Submit Question" %>
+
+
+
+
+    <% end %>
+
+
+    <%=  link_to "Back to All Questions", questions_path %>
+
+  </div>
+</div>

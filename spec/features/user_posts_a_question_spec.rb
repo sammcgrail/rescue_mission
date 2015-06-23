@@ -1,24 +1,33 @@
 require 'rails_helper'
 
 
-feature 'user deletes a question from question details page', %Q{
+feature 'user posts a question from add question page', %Q{
   As an authenticated user
-  I want to be able to delete a question from the question's details page
-  So I can delete that dumb/duplicate question
+  I want to be able to post a question
+  So I can receive help from others
 } do
   # Acceptance Criteria
-  # - I must be able delete a question from the question edit page
-  # - I must be able delete a question from the question details page
-  # - All answers associated with the question must also be deleted
+  # - I must provide a title that is at least 40 characters long
+  # - I must provide a description that is at least 150 characters long
+  # - I must be presented with errors if I fill out the form incorrectly
+
+
 
   scenario 'user visits question index' do
     user = FactoryGirl.create(:user)
     question = Question.create!(title:"Butthole", body: "STUFF", user_id: user.id, created_at: "Mon, 22 Jun 2015 17:26:19 UTC +00:00")
     visit questions_path
-    click_on question.title
-    click_on "Delete Question"
-    expect(current_path).to eq(questions_path)
-    expect(page).to_not have_content(question.title)
+    click_on "Sign In"
+    fill_in "Email", with: user.email
+    fill_in "Password", with: user.password
+    click_button "Log in"
+    click_on "New Question"
+    fill_in "Title", with: "Test Question 40 char title title title title title title title title title "
+    fill_in "question_body", with: "Test Question body 150 char body body body body body body body body body body
+    body body body body body body body body body body body body body body body body body body body body
+    body body body body body body body body body body body body body body body body body ok 150 char"
+    click_on "Submit Question"
+    expect(page).to have_content("Test Question 40")
   end
 
 end
