@@ -20,7 +20,6 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(title: question_params[:title], body: question_params[:body], user_id: current_user.id)
-    binding.pry
     if @question.save
       flash[:notice] = 'Question added.'
       redirect_to questions_path
