@@ -1,4 +1,3 @@
-
 class QuestionsController < ApplicationController
   def index
     @questions = Question.all
@@ -6,6 +5,7 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+    @answers = Answer.where(question_id: @question)
   end
 
   def destroy

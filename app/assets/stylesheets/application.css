@@ -23,3 +23,16 @@
 .flash {
   color: darkblue;
 }
+
+.answer {
+  background-color: darkgrey;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.answer-description, .answer-user {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
