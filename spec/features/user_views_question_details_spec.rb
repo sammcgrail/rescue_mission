@@ -12,7 +12,7 @@ feature 'user views a questions details', %Q{
 
   scenario 'user visits question index' do
     user = FactoryGirl.create(:user)
-    question = Question.create!(title:"Test Question", body: "STUFF", user_id: user.id, created_at: "Mon, 22 Jun 2015 17:26:19 UTC +00:00")
+    question = Question.create!(title:"This This THis This THis this this thiyyyys", body: "Testy ok 150 char Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec qu", user_id: user.id, created_at: "Mon, 22 Jun 2015 17:26:19 UTC +00:00")
     visit questions_path
     click_on question.title
     expect(page).to have_content(question.title)

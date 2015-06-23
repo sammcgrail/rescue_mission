@@ -17,5 +17,9 @@
  */
 .errors {
   font-weight: bolder;
-  color: darkred; 
+  color: darkred;
+}
+
+.flash {
+  color: darkblue;
 }
