@@ -1,23 +1,29 @@
 
+
 <div class="row">
   <div class="small-4 medium-6 large-12">
     <h1>Question Details: </h1>
     <h2>Title: <%= @question.title %></h2>
     <h5>Asked by: <%= @question.user.email %></h5>
     <h5>Question Content:</h5>
+
+
+
         <p>
           <%= @question.body %>
         </p>
       <div class="row">
         <div class="large-12 columns">
-
           <div class="row">
-              <div class="large-12 columns">
-                <%= link_to("All Questions", questions_path) %>
-              </div>
+            <div class="large-12 columns">
+              <%= link_to("All Questions", questions_path) %>
+            </div>
           </div>
           <div class="row">
             <div class="large-12 columns">
+              <% if current_user.id == @question.user_id %>
+              <%= link_to("Edit Question", @question.id.to_s + "/edit") %> <br>
+              <% end %>
               <%= link_to 'Delete Question',
                         '/questions/' + @question.to_param,
                         method: :delete %>
@@ -28,13 +34,15 @@
       </div>
 
 
-        <% @answers.each do |answer| %>
-          <%= content_tag(:div, class: "answer") do %>
-            <%=content_tag(:div, content_tag(:p, 'Answer: ' + answer.description ), class: "answer-description") %>
-            <%=content_tag(:div, content_tag(:p, 'From: ' + answer.user.email ), class: "answer-user") %>
-          <% end %>
+      <% @answers.order(created_at: :desc).each do |answer| %>
+        <%= content_tag(:div, class: "answer") do %>
+          <%=content_tag(:div, content_tag(:p, 'Answer: ' + answer.description ), class: "answer-description") %>
+          <%=content_tag(:div, content_tag(:p, 'From: ' + answer.user.email ), class: "answer-user") %>
         <% end %>
+      <% end %>
 
+
+      <%= render partial: "answers/answerform", locals: { question: @question, answer: @answer} %>
 
 
       <div class="row">

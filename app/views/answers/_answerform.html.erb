@@ -1,0 +1,13 @@
+Answer form:
+<%= form_for([question, answer]) do |f| %>
+  <% answer.errors.messages.each do |item, error| %>
+    <%= content_tag(:div, content_tag(:li, "#{item} #{error[0]}"), class: "errors") %>
+  <% end %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+
+  <%= f.submit "Submit Answer" %>
+
+<% end %>

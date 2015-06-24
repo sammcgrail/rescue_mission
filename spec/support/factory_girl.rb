@@ -6,5 +6,7 @@ FactoryGirl.define do
     password 'password'
     password_confirmation 'password'
   end
+FactoryGirl.define do
+  password = rand(100).to_s
 
 end

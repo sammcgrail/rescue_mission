@@ -3,13 +3,29 @@ class QuestionsController < ApplicationController
     @questions = Question.all
   end
 
-  def show
-    @question = Question.find(params[:id])
+  def update
+    @question = find_question
     @answers = Answer.where(question_id: @question)
+    @answer = Answer.new
+    if @question.update(title: params[:question][:title], body: params[:question][:body])
+      flash[:notice] = 'Question Updated'
+      render :show
+    else
+      render :edit
+    end
+  end
+
+  def edit
+    @question = find_question
+  end
+  def show
+    @question = find_question
+    @answers = Answer.where(question_id: @question)
+    @answer = Answer.new
   end
 
   def destroy
-    @question = Question.find(params[:id])
+    @question = find_question
     @question.destroy
     redirect_to questions_path
   end
@@ -29,9 +45,12 @@ class QuestionsController < ApplicationController
 
   end
 
-
+  def find_question
+    Question.find(params[:id])
+  end
 
   protected
+
   def question_params
     params.require(:question).permit(:title, :body, :user_id, :timestamps)
   end
