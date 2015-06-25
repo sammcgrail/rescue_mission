@@ -36,3 +36,58 @@
   margin-right: 5px;
   margin-left: 5px;
 }
+
+.question-container {
+  background-color: darkgrey;
+}
+
+.question-info-container {
+  position: relative;
+}
+
+.question-details{
+
+}
+
+.question-index-container {
+  background-color: darkgrey;
+}
+
+.question-index-header > h1 {
+  margin: 10px;
+  font-weight: bolder;
+  color: darkblue;
+  font-size: 300%;
+}
+
+.question-table {
+  position: relative;
+  margin-left: 50px;
+  margin-right: 50px;
+  background-color: darkblue;
+}
+
+.question-table > table {
+
+
+}
+
+.question-title {
+
+}
+
+.question-email {
+
+}
+
+.question-content-header {
+
+}
+
+.question-body-container {
+
+}
+
+.question-body {
+
+}

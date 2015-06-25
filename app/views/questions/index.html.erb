@@ -2,23 +2,27 @@
 
 <div class="row">
   <div class="large-12">
-    <h1>Questions</h1>
-    <table>
-      <tr>
-        <th>Title</th>
-        <th>Creator</th>
-        <th>Created on</th>
-      </tr>
-      <% @questions.order(created_at: :desc).each do |question| %>
-        <tr>
-          <td><%= link_to(question.title, question_path(question)) %></td>
-          <td><%= question.user.email %></td>
-          <td><%= question.created_at %></td>
-        </tr>
-      <% end %>
+    <%= content_tag(:div, class: "question-index-container") do %>
+      <%= content_tag(:div, content_tag(:h1, "Questions"), class:"question-index-header") %>
 
+        <%= content_tag(:div, class: "question-table") do %>
+          <table>
+            <tr>
+              <th>Title</th>
+              <th>Creator</th>
+              <th>Created on</th>
+            </tr>
+            <% @questions.order(created_at: :desc).each do |question| %>
+              <tr>
+                <td><%= link_to(question.title, question_path(question)) %></td>
+                <td><%= question.user.email %></td>
+                <td><%= question.created_at %></td>
+              </tr>
+            <% end %>
+          </table>
+          <% end %>
 
-    <%=  link_to "New Question", new_question_path %>
-
+      <%=  link_to "New Question", new_question_path %>
+    <% end %>
   </div>
 </div>
