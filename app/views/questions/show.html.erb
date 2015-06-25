@@ -23,11 +23,11 @@
             <div class="large-12 columns">
               <% if current_user.id == @question.user_id %>
               <%= link_to("Edit Question", @question.id.to_s + "/edit") %> <br>
-              <% end %>
               <%= link_to 'Delete Question',
                         '/questions/' + @question.to_param,
                         method: :delete %>
-                        <br>
+              <% end %>
+                <br>
             </div>
           </div>
         </div>
