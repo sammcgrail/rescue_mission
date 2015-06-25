@@ -35,10 +35,11 @@
 
 
       <% @answers.order(created_at: :desc).each do |answer| %>
-        <%= content_tag(:div, class: "answer") do %>
-          <%=content_tag(:div, content_tag(:p, 'Answer: ' + answer.description ), class: "answer-description") %>
-          <%=content_tag(:div, content_tag(:p, 'From: ' + answer.user.email ), class: "answer-user") %>
-        <% end %>
+
+          <%= content_tag(:div, class: "answer") do %>
+            <%=content_tag(:div, content_tag(:p, 'Answer: ' + answer.description ), class: "answer-description") %>
+            <%=content_tag(:div, content_tag(:p, 'From: ' + answer.user.email ), class: "answer-user") %>
+          <% end %>
       <% end %>
 
 
