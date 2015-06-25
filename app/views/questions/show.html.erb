@@ -2,16 +2,20 @@
 
 <div class="row">
   <div class="small-4 medium-6 large-12">
-    <h1>Question Details: </h1>
-    <h2>Title: <%= @question.title %></h2>
-    <h5>Asked by: <%= @question.user.email %></h5>
-    <h5>Question Content:</h5>
 
+  <%= content_tag(:div, class: "question-container") do %>
+    <%= content_tag(:div, class: "question-info-container") do %>
+      <%= content_tag(:div, "Question Details:", class: "question-details") %>
+      <%= content_tag(:div ,"Title: " + @question.title, class: "question-title"  ) %>
+      <%= content_tag(:div, "Asked by: " + @question.user.email, class: "question-email") %>
+      <%= content_tag(:div, "Question Content:", class: "question-content-header") %>
+    <% end %>
 
+    <%= content_tag(:div, class:"question-body-container") do %>
+        <%= content_tag(:div, @question.body, class: "question-body") %>
+    <% end %>
 
-        <p>
-          <%= @question.body %>
-        </p>
+  <% end %>
       <div class="row">
         <div class="large-12 columns">
           <div class="row">

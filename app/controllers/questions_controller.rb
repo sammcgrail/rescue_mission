@@ -1,4 +1,19 @@
 class QuestionsController < ApplicationController
+
+
+  def signed_in?
+    current_user.present?
+  end
+
+
+  def authenticate!
+    unless signed_in?
+      @questions = Question.all
+      flash[:notice]= "You have to be signed in to do that!"
+      render :index
+    end
+  end
+
   def index
     @questions = Question.all
   end
@@ -19,6 +34,7 @@ class QuestionsController < ApplicationController
     @question = find_question
   end
   def show
+    authenticate!
     @question = find_question
     @answers = Answer.where(question_id: @question)
     @answer = Answer.new
@@ -31,6 +47,7 @@ class QuestionsController < ApplicationController
   end
 
   def new
+    authenticate!
     @question = Question.new
   end
 
