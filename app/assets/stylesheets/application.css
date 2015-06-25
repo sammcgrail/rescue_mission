@@ -50,6 +50,7 @@
 }
 
 .question-index-container {
+  width: relative;
   background-color: darkgrey;
 }
 
@@ -60,16 +61,20 @@
   font-size: 300%;
 }
 
+.table-item {
+  width: 500px;
+  overflow: hidden;
+}
+
 .question-table {
   position: relative;
   margin-left: 50px;
   margin-right: 50px;
-  background-color: darkblue;
 }
 
-.question-table > table {
-
-
+.question-table > td {
+  width: 150px;
+  word-wrap: break-word;
 }
 
 .question-title {

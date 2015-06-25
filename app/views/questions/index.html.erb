@@ -14,7 +14,7 @@
             </tr>
             <% @questions.order(created_at: :desc).each do |question| %>
               <tr>
-                <td><%= link_to(question.title, question_path(question)) %></td>
+                <td><%= content_tag(:div, link_to(question.title, question_path(question)), class: "table-item") %></td>
                 <td><%= question.user.email %></td>
                 <td><%= question.created_at %></td>
               </tr>
